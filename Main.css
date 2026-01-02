@@ -1,0 +1,122 @@
+/* FONT SETUP */
+@font-face {
+    font-family: 'orbitron-local';
+    src: url(font/Orbitron-Bold.ttf);
+}
+
+/* Base Styles */
+body {
+    background: linear-gradient(31deg, rgba(47, 92, 99, 1) 0%, 
+                            rgb(9, 10, 10) 53%, 
+                            rgba(5, 109, 150, 1) 100%);
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* PENTING: Agar background tidak putus di HP */
+    min-height: 100vh;
+    color: white;
+}
+
+.main {
+    padding-block: 1%;
+}
+
+/* NAVBAR & TRANSITION */
+.navbar {
+    transition: background-color 0.4s ease-in-out, padding 0.4s ease-in-out;
+}
+
+.bg-custom {
+    background-color: rgb(3, 48, 63) !important; /* Paksa warna gelap saat scroll */
+}
+
+/* TYPOGRAPHY CLASSES */
+.roboto {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400; 
+    font-style: normal;
+}
+
+.roboto-tebal {
+    font-family: "Roboto", sans-serif;
+    font-weight: 700; 
+    font-style: normal;
+}
+
+.roboto-light-italic {
+    font-family: "Roboto", sans-serif;
+    font-weight: 200; 
+    font-style: italic;
+}
+
+.roboto-tebal-italic {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400; 
+    font-style: italic;
+}
+
+p {
+    font-family: "Roboto", sans-serif;
+    font-weight: 300; 
+    font-style: normal; /* Fixed typo: mormal -> normal */
+    line-height: 1.6;
+}
+
+h1 {
+    /* Fallback ke Google Font Orbitron jika file lokal gagal */
+    font-family: 'orbitron-local', 'Orbitron', sans-serif; 
+    font-weight: 700;
+}
+
+/* ANIMATION */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    opacity: 0;
+    animation: fadeInUp 1s ease-out forwards;
+}
+
+.delay-1 { animation-delay: 0.2s; }
+.delay-2 { animation-delay: 0.4s; }
+.delay-3 { animation-delay: 0.6s; }
+.delay-4 { animation-delay: 0.8s; }
+
+/* --- RESPONSIVE TYPOGRAPHY (PENTING BUAT HP) --- */
+
+/* Default (Laptop/Layar Besar) */
+.responsive-h1 {
+    font-size: 8vh; /* Sedikit dikecilkan dari 10vh biar ga terlalu raksasa */
+    line-height: 1.2;
+}
+.responsive-h3 {
+    font-size: 4vh;
+    margin-bottom: 20px;
+}
+
+/* HP (Layar di bawah 768px) */
+@media (max-width: 768px) {
+    .responsive-h1 {
+        font-size: 3rem; /* Pakai Rem biar pas di HP */
+        margin-top: 80px; /* Jarak dari navbar */
+    }
+    
+    .responsive-h3 {
+        font-size: 1.5rem;
+    }
+    
+    p {
+        font-size: 1rem; /* Ukuran paragraf standar HP */
+        text-align: center; /* Paragraf rata tengah di HP */
+    }
+    
+    .main {
+        padding-bottom: 50px; /* Ruang napas bawah */
+    }
+}
